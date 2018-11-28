@@ -18,8 +18,8 @@ import static org.junit.Assert.*;
  * @Description: 测试bean是否被创建
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = CDPlayerConfig.class)     // 加载配置文件
-//@ContextConfiguration(locations = {"classpath*:/bean/soundsystem/cdplayer-config.xml"})
+//@ContextConfiguration(classes = CDPlayerConfig.class)     // 加载配置文件
+@ContextConfiguration(locations = {"classpath*:/bean/soundsystem/cdplayer-config.xml"})
 //@Slf4j
 public class CDPlayerTest {
 

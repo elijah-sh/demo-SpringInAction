@@ -20,15 +20,15 @@ public class CDPlayer implements MediaPlayer {
         this.cd = cd;
     }
 
-/*    @Autowired
+  @Autowired
     public void setCompactDisc(CompactDisc cd) {
         this.cd = cd;
     }
-
-    @Autowired
-    public void insertDisc(CompactDisc cd){
-        this.cd = cd;
-    }*/
+    /*
+        @Autowired
+        public void insertDisc(CompactDisc cd){
+            this.cd = cd;
+        }*/
     @Override
     public void play() {
         cd.play();
