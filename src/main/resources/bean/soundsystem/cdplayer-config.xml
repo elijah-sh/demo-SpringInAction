@@ -7,7 +7,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
      http://www.springframework.org/schema/beans/spring-beans-4.0.xsd ">
 
-     <bean id="compactDisc" class = "com.bean.soundsystem.BlankDisc">
+<!--     <bean id="compactDisc" class = "com.bean.soundsystem.BlankDisc">
           <constructor-arg  value="Sgt. Blank Peppers`s Lonely Hearts Club Band ." />
           <constructor-arg value="The Beatles" />
           <constructor-arg>
@@ -19,22 +19,24 @@
                </list>
           </constructor-arg>
 
-     </bean>
+     </bean>-->
 
      <bean id="compactDisc_p" class = "com.bean.soundsystem.BlankDisc"
                  p:title="Sgt. Blank Peppers`s Lonely Hearts Club Band ."
                  p:artist="The Beatles"
-                 p:tracks="tracksList">
+                >
 
-         <util:list id="tracksList" >
-             <value>With a Little Help From My Friends</value>
-             <value>Lucky in skay </value>
-             <value>Getting Better</value>
-             <value>Fixxing a Hole</value>
-         </util:list>
+         <!--
+             p:tracks="tracksList"
+            <util:list id="tracksList" >-->
+             <!--<value>With a Little Help From My Friends</value>-->
+             <!--<value>Lucky in skay </value>-->
+             <!--<value>Getting Better</value>-->
+             <!--<value>Fixxing a Hole</value>-->
+         <!--</util:list>-->
 
-         <!-- <property name="title"  value="Sgt. Blank Peppers`s Lonely Hearts Club Band ." />
-          <property name="artist"  value="The Beatles" />
+          <!--<property name="title"  value="Sgt. Blank Peppers`s Lonely Hearts Club Band ." />-->
+          <!--<property name="artist"  value="The Beatles" />-->
           <property name="tracks"  >
                <list>
                     <value>With a Little Help From My Friends</value>
@@ -42,22 +44,22 @@
                     <value>Getting Better</value>
                     <value>Fixxing a Hole</value>
                </list>
-          </property>-->
+          </property>
 
 
      </bean>
 
-    <bean id="cdPlayer" class="com.bean.soundsystem.CDPlayer">
+<!--    <bean id="cdPlayer" class="com.bean.soundsystem.CDPlayer">
      <constructor-arg ref="compactDisc" />
-    </bean>
+    </bean>-->
 
      <!--
           c-与p  命名空间来声明构造器参数
      -->
-     <bean id="cdPlayer_c" class="com.bean.soundsystem.CDPlayer"
-           c:_0-ref="compactDisc"/>
+  <!--   <bean id="cdPlayer_c" class="com.bean.soundsystem.CDPlayer"
+           c:_0-ref="compactDisc"/>-->
 
-     <bean id="cdPlayer_p" class="com.bean.soundsystem.CDPlayer"
-           p:compactDisc-ref="compactDisc"/>
+     <!--<bean id="cdPlayer_p" class="com.bean.soundsystem.CDPlayer"-->
+           <!--p:compactDisc-ref="compactDisc_p"/>-->
 
 </beans>

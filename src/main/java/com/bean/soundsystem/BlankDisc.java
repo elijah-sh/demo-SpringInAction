@@ -1,5 +1,6 @@
 package com.bean.soundsystem;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,17 +13,18 @@ import java.util.List;
  */
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class BlankDisc implements CompactDisc {
 
     private String title ;
     private String artist;
     private List<String> tracks;   // 磁道列表
 
-    public  BlankDisc(String title, String artist, List<String> tracks){
-        this.title = title;
-        this.artist = artist;
-        this.tracks = tracks;
-    }
+    // public  BlankDisc(String title, String artist, List<String> tracks){
+    //     this.title = title;
+    //     this.artist = artist;
+    //     this.tracks = tracks;
+    // }
     @Override
     public void play() {
         System.out.println("Playing " + title + " by "+ artist);

@@ -2,6 +2,7 @@ package com.bean.soundsystem;
 
 
 import com.bean.soundsystem.config.CDPlayerConfig;
+import com.bean.soundsystem.config.SoundSystemConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Rule;
 import org.junit.Test;
@@ -18,8 +19,8 @@ import static org.junit.Assert.*;
  * @Description: 测试bean是否被创建
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(classes = CDPlayerConfig.class)     // 加载配置文件
-@ContextConfiguration(locations = {"classpath*:/bean/soundsystem/cdplayer-config.xml"})
+@ContextConfiguration(classes = SoundSystemConfig.class)     // 加载配置文件
+//@ContextConfiguration(locations = {"classpath*:/bean/soundsystem/cdplayer-config.xml"})
 //@Slf4j
 public class CDPlayerTest {
 

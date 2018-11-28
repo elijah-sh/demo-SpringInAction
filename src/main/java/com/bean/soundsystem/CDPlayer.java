@@ -1,5 +1,8 @@
 package com.bean.soundsystem;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Component;
  *  CDPlayer的play方法使用CompactDisc中的play方法
  */
 //@Component
+@Data
 public class CDPlayer implements MediaPlayer {
 
    // @Autowired

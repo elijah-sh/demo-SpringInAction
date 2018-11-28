@@ -7,6 +7,7 @@ import com.bean.soundsystem.WhileAlbum;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,17 +18,23 @@ import org.springframework.stereotype.Service;
  */
 @Configuration
 //@ComponentScan(basePackages = "com.bean.soundsystem")
+@Import(CDConfig.class)
 public class CDPlayerConfig {
 
     @Bean
+    public CDPlayer cdPlayer(CompactDisc compactDisc){
+        return new CDPlayer(compactDisc);
+    }
+
+  /*  @Bean
     public CompactDisc sgtPeppers(){
         return new SgtPeppers();
     }
 
-    /**
+    *//**
      * 随机播放甲壳虫乐队中的歌曲
      * @return
-     */
+     *//*
     @Bean
     public CompactDisc randomBeatlesCd(){
 
@@ -48,7 +55,7 @@ public class CDPlayerConfig {
     @Bean
     public CDPlayer cdPlayer(){
         return new CDPlayer(randomBeatlesCd());
-    }
+    }*/
 
 }
 
