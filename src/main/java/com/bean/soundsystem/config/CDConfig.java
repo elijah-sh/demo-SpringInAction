@@ -4,6 +4,7 @@ import com.bean.soundsystem.CompactDisc;
 import com.bean.soundsystem.SgtPeppers;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 /**
  * @Auther: shuaihu.shen@hand-china.com
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 public class CDConfig {
 
     @Bean
+    @Primary
     public CompactDisc compactDisc(){
         return new SgtPeppers() ;
     }

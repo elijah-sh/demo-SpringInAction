@@ -38,4 +38,6 @@
                 resource-ref="true"
                 proxy-interface="javax.sql.DataSource" />
     </beans>
+
+    <bean id="icrCream" class="com.bean.IceCream" primary="true" scope="prototype" />
 </beans>

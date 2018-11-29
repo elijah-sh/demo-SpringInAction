@@ -4,10 +4,18 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:util="http://www.springframework.org/schema/util"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd ">
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <bean class="com.bean.soundsystem.config.CDConfig"/>
 
 <!--    <import resource="cdplayer-config.xml"/>-->
+
+    <!--声明bean的作用域-->
+    <bean id="cart" scope="session" class="com.bean.ShoppingCat">
+        <aop:scoped-proxy proxy-target-class="false"/>
+    </bean>
 </beans>
