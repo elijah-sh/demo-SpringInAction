@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="audienceXML" class="com.aop.AudienceXML"/>
+    <!--
+        开启基于注解的事务，使用xml配置形式的事务（必要主要的都是使用配置式）
+    -->
+    <aop:config>
+
+        <aop:aspect ref="audienceXML" >
+            <aop:before pointcut="execution(* com.aop.Performance.perform(..))"
+                        method="silenceCellPhones"/>
+
+            <aop:before pointcut="execution(* com.aop.Performance.perform(..))"
+                        method="takeSeats"/>
+
+            <aop:after-returning pointcut="execution(* com.aop.Performance.perform(..))"
+                        method="applause"/>
+
+            <aop:after-throwing pointcut="execution(* com.aop.Performance.perform(..))"
+                                 method="demandRefund"/>
+        </aop:aspect>
+
+        <aop:aspect ref="audienceXML">
+           <!-- 定义切点-->
+            <aop:pointcut id="performance" expression="execution(* com.aop.Performance.perform(..))"/>
+           <!-- 引用切点-->
+            <aop:before method="silenceCellPhones" pointcut-ref="performance"/>
+            <aop:before method="takeSeats" pointcut-ref="performance"/>
+            <aop:after method="applause"  pointcut-ref="performance"/>
+            <aop:after-returning method="applause" pointcut-ref="performance"/>
+            <aop:after-throwing method="demandRefund" pointcut-ref="performance" />
+        </aop:aspect>
+
+        <aop:aspect ref="audienceXML">
+            <aop:pointcut id="performanceAround" expression="execution(* com.aop.Performance.perform(..))" />
+            <aop:around  pointcut-ref="performanceAround" method="watchPerformance" />
+        </aop:aspect>
+    </aop:config>
+
+    <bean class="com.aop.Performance" />
+
+</beans>

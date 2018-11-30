@@ -1,6 +1,7 @@
 package com.aop;
 
 import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.ProceedingJoinPoint;
 
 /**
  * @Auther: shuaihu.shen@hand-china.com
@@ -10,7 +11,20 @@ import org.aspectj.lang.annotation.*;
 @Aspect
 public class Audience {
 
-  //  public void watchPerformance(ProcessdingJoinPoint)
+  public void watchPerformance(ProceedingJoinPoint joinPoint){
+      try{
+          // 开始前
+          System.out.println("手机静音");
+          System.out.println("占个走位");
+
+          joinPoint.proceed(); // 执行被通知的方法
+            // 成功之后
+          System.out.println("表演的不赖！");
+      }catch (Throwable e){
+          // 失败时
+          System.out.println("表演的不中，退票！");
+      }
+  }
 
 
     /**************************
