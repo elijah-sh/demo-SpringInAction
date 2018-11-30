@@ -7,4 +7,6 @@ package com.bean.soundsystem;
  */
 public interface CompactDisc {
     void play();
+
+    void playTrack(int n );
 }
