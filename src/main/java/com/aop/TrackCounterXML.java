@@ -9,10 +9,9 @@ import java.util.Map;
 /**
  * @Auther: shuaihu.shen@hand-china.com
  * @Date: 2018/11/29 19:37
- * @Description:  为通知传递参数
+ * @Description:  为通知传递参数   无注解方式
  */
-@Aspect
-public class TrackCounter {
+public class TrackCounterXML {
 
     private Map<Integer, Integer> trackCounts = new HashMap<>();
 

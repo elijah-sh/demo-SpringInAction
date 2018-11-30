@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5b97ed1-4f5e-41ca-899e-eaa18841e6e3" name="Default Changelist" comment="第一部分核心知识：第四章：面向切面的Spring ：使用注解创建切面">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aop/AudienceXML.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aop/TrackCounter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/aop/aop-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/aop/PerformanceTest.java" afterDir="false" />
+    <list default="true" id="b5b97ed1-4f5e-41ca-899e-eaa18841e6e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aop/BlankDisc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aop/CompactDiscAop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aop/CriticAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aop/aop-track-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/aop/CompactDiscAopTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aop/Audience.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aop/Audience.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aop/Performance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aop/Performance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aop/TrackCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aop/TrackCounterXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/aop/PerformanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/aop/PerformanceTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,40 +36,41 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="JndiObjectFactoryBean" value="1" />
-          <entry key="class" value="22" />
-          <entry key="java" value="78" />
+          <entry key="class" value="23" />
+          <entry key="java" value="85" />
           <entry key="pom" value="1" />
           <entry key="properties" value="3" />
           <entry key="sql" value="2" />
-          <entry key="xml" value="25" />
+          <entry key="xml" value="29" />
           <entry key="xsd" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="22" />
-          <entry key="JAVA" value="78" />
+          <entry key="CLASS" value="23" />
+          <entry key="JAVA" value="85" />
           <entry key="Properties" value="3" />
           <entry key="SQL" value="2" />
           <entry key="UML" value="1" />
-          <entry key="XML" value="28" />
+          <entry key="XML" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="4" />
-          <entry key="java" value="4581" />
+          <entry key="dummy" value="7" />
+          <entry key="java" value="4728" />
           <entry key="properties" value="128" />
-          <entry key="txt" value="130" />
-          <entry key="xml" value="1555" />
+          <entry key="txt" value="160" />
+          <entry key="xml" value="1730" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4581" />
-          <entry key="PLAIN_TEXT" value="134" />
+          <entry key="JAVA" value="4728" />
+          <entry key="PLAIN_TEXT" value="167" />
+          <entry key="Pointcut Expression" value="1" />
           <entry key="Properties" value="128" />
-          <entry key="XML" value="1555" />
+          <entry key="XML" value="1729" />
         </counts>
       </usages-collector>
     </session>
@@ -75,69 +78,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/aop/TrackCounterTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/aop/aop-track-config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="18" selection-start-line="18" selection-end-line="19" selection-end-column="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1339#1340#0" expanded="true" />
-                <element signature="e#1392#1393#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="222">
+              <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/aop/aop-config.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/CriticAspect.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.19.RELEASE/spring-aop-4.3.19.RELEASE.jar!/org/springframework/aop/config/spring-aop-2.0.xsd">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.19.RELEASE/spring-beans-4.3.19.RELEASE.jar!/org/springframework/beans/factory/xml/spring-beans-3.2.xsd">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-828" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/TrackCounterConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/TrackCounter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/Performance.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="276">
+              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -145,31 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="34" column="24" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/aop/PerformanceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-340">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#892#893#0" expanded="true" />
-                <element signature="e#918#919#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/bean/soundsystem/CDPlayerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="42" column="92" lean-forward="true" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="92" />
+            <state relative-caret-position="465">
+              <caret line="88" column="36" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -181,8 +111,9 @@
       <list>
         <option value="Interface" />
         <option value="yet_unknown" />
-        <option value="Class" />
         <option value="Arquillian JUnit Test Class" />
+        <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -199,13 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/sia/knights/BraveKnightTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sia/knights/config/Knights.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/chapter_01/bean.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/sia/knights/Minstrel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sia/knights/Quest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sia/knights/RescueDamselQuest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sia/knights/SlayDragonQuest.java" />
         <option value="$PROJECT_DIR$/src/main/java/sia/knights/Knight.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/spring/minstrel.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/bean/soundsystem/CDPlayerConfig.java" />
@@ -235,7 +159,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/bean/bean.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/bean/config/ExpressiveConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aop/AopTest.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/bean/soundsystem/CompactDisc.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aop/TrackCounterConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bean/soundsystem/BlankDisc.java" />
@@ -246,10 +169,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/aop/ConcertConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aop/Audience.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aop/AudienceXML.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aop/TrackCounter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aop/Performance.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/aop/PerformanceTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/aop/aop-config.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/aop/PerformanceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aop/TrackCounter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aop/TrackCounterXML.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aop/CompactDisc.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aop/CompactDiscAop.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/aop/aop-track-config.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/aop/CompactDiscAopTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aop/BlankDisc.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aop/CriticAspect.java" />
       </list>
     </option>
   </component>
@@ -272,8 +203,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="35" />
-    <option name="y" value="227" />
+    <option name="x" value="65" />
+    <option name="y" value="295" />
     <option name="width" value="1378" />
     <option name="height" value="733" />
   </component>
@@ -328,6 +259,38 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="aop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringInAction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringInAction" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringInAction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringInAction" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="aop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringInAction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringInAction" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringInAction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringInAction" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="soundsystem" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringInAction" type="b2602c69:ProjectViewProjectNode" />
@@ -397,9 +360,10 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543563709886" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543567081077" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -446,7 +410,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PerformanceTest.perform">
+  <component name="RunManager" selected="JUnit.CompactDiscAopTest.playTrack">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -459,17 +423,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CDPlayerTest.play" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CompactDiscAopTest.playTrack" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpringInAction" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.bean.soundsystem.*" />
+          <option name="PATTERN" value="com.aop.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.bean.soundsystem" />
-      <option name="MAIN_CLASS_NAME" value="com.bean.soundsystem.CDPlayerTest" />
-      <option name="METHOD_NAME" value="play" />
+      <option name="PACKAGE_NAME" value="com.aop" />
+      <option name="MAIN_CLASS_NAME" value="com.aop.CompactDiscAopTest" />
+      <option name="METHOD_NAME" value="playTrack" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
@@ -566,19 +530,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.CDPlayerTest.play" />
       <item itemvalue="JUnit.PersistenceTest" />
       <item itemvalue="JUnit.TrackCounterTest.testTrackCounter" />
       <item itemvalue="JUnit.TrackCounterTest.testPerformance" />
       <item itemvalue="JUnit.PerformanceTest.perform" />
+      <item itemvalue="JUnit.CompactDiscAopTest.playTrack" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CompactDiscAopTest.playTrack" />
         <item itemvalue="JUnit.PerformanceTest.perform" />
         <item itemvalue="JUnit.TrackCounterTest.testPerformance" />
         <item itemvalue="JUnit.TrackCounterTest.testTrackCounter" />
         <item itemvalue="JUnit.PersistenceTest" />
-        <item itemvalue="JUnit.CDPlayerTest.play" />
       </list>
     </recent_temporary>
   </component>
@@ -596,7 +560,7 @@
       <workItem from="1543281830619" duration="20635000" />
       <workItem from="1543367531719" duration="22726000" />
       <workItem from="1543451926936" duration="13803000" />
-      <workItem from="1543544706859" duration="9388000" />
+      <workItem from="1543544706859" duration="12948000" />
     </task>
     <task id="LOCAL-00001" summary="第一部分核心知识：第二章：自动配置与xml装配bean">
       <created>1543370596149</created>
@@ -633,43 +597,50 @@
       <option name="project" value="LOCAL" />
       <updated>1543559948982</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="第一部分核心知识：第四章：面向切面的Spring ：使用XML声明切面，三种方式 两种前后通知和环绕通知">
+      <created>1543563789084</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1543563789084</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TrackCounterTest_testTrackCounter - 2018.11.30 at 11h 15m 37s.xml">
-      <configuration name="TrackCounterTest.testTrackCounter" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TrackCounterTest_testPerformance - 2018.11.30 at 14h 10m 35s.xml">
-      <configuration name="TrackCounterTest.testPerformance" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TrackCounterTest_testPerformance - 2018.11.30 at 14h 11m 38s.xml">
-      <configuration name="TrackCounterTest.testPerformance" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TrackCounterTest_testPerformance - 2018.11.30 at 14h 15m 28s.xml">
-      <configuration name="TrackCounterTest.testPerformance" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TrackCounterTest_testPerformance - 2018.11.30 at 14h 16m 53s.xml">
-      <configuration name="TrackCounterTest.testPerformance" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TrackCounterTest_testPerformance - 2018.11.30 at 14h 17m 20s.xml">
-      <configuration name="TrackCounterTest.testPerformance" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PerformanceTest_perform - 2018.11.30 at 15h 29m 46s.xml">
+    <history-entry file="PerformanceTest_perform - 2018.11.30 at 15h 38m 54s.xml">
       <configuration name="PerformanceTest.perform" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PerformanceTest_perform - 2018.11.30 at 15h 30m 45s.xml">
+    <history-entry file="PerformanceTest_perform - 2018.11.30 at 15h 41m 57s.xml">
       <configuration name="PerformanceTest.perform" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PerformanceTest_perform - 2018.11.30 at 15h 34m 45s.xml">
-      <configuration name="PerformanceTest.perform" configurationId="JUnit" />
+    <history-entry file="CompactDiscAopTest_playTrack - 2018.11.30 at 16h 05m 51s.xml">
+      <configuration name="CompactDiscAopTest.playTrack" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PerformanceTest_perform - 2018.11.30 at 15h 37m 06s.xml">
-      <configuration name="PerformanceTest.perform" configurationId="JUnit" />
+    <history-entry file="CompactDiscAopTest_playTrack - 2018.11.30 at 16h 21m 12s.xml">
+      <configuration name="CompactDiscAopTest.playTrack" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompactDiscAopTest_playTrack - 2018.11.30 at 16h 21m 53s.xml">
+      <configuration name="CompactDiscAopTest.playTrack" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompactDiscAopTest_playTrack - 2018.11.30 at 16h 22m 26s.xml">
+      <configuration name="CompactDiscAopTest.playTrack" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompactDiscAopTest_playTrack - 2018.11.30 at 16h 23m 34s.xml">
+      <configuration name="CompactDiscAopTest.playTrack" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompactDiscAopTest_playTrack - 2018.11.30 at 16h 26m 40s.xml">
+      <configuration name="CompactDiscAopTest.playTrack" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompactDiscAopTest_playTrack - 2018.11.30 at 16h 27m 42s.xml">
+      <configuration name="CompactDiscAopTest.playTrack" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompactDiscAopTest_playTrack - 2018.11.30 at 16h 28m 29s.xml">
+      <configuration name="CompactDiscAopTest.playTrack" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74667000" />
+    <option name="totallyTimeSpent" value="78227000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -684,7 +655,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22314675" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22314675" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -692,9 +663,9 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3295082" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.47213113" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.47213113" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295082" />
@@ -728,7 +699,8 @@
     <MESSAGE value="第一部分核心知识：第三章：高级装配  环境选择profile以及条件选择" />
     <MESSAGE value="第一部分核心知识：第三章：高级装配 处理歧义、bean作用域，运行时注入" />
     <MESSAGE value="第一部分核心知识：第四章：面向切面的Spring ：使用注解创建切面" />
-    <option name="LAST_COMMIT_MESSAGE" value="第一部分核心知识：第四章：面向切面的Spring ：使用注解创建切面" />
+    <MESSAGE value="第一部分核心知识：第四章：面向切面的Spring ：使用XML声明切面，三种方式 两种前后通知和环绕通知" />
+    <option name="LAST_COMMIT_MESSAGE" value="第一部分核心知识：第四章：面向切面的Spring ：使用XML声明切面，三种方式 两种前后通知和环绕通知" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -750,129 +722,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.19.RELEASE/spring-context-4.3.19.RELEASE.jar!/org/springframework/jndi/JndiObjectFactoryBean.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/org.springframework.jndi.JndiObjectFactoryBean">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>org.springframework.jndi.JndiObjectFactoryBean</OriginalElement>
-          <nodes>
-            <node x="429.25" y="81.0">org.springframework.jndi.JndiLocatorSupport</node>
-            <node x="262.75" y="243.0">org.springframework.jndi.JndiObjectFactoryBean</node>
-            <node x="379.0" y="162.0">org.springframework.beans.factory.FactoryBean</node>
-            <node x="0.0" y="162.0">org.springframework.beans.factory.BeanFactoryAware</node>
-            <node x="132.1111111111111" y="81.0">org.springframework.beans.factory.Aware</node>
-            <node x="448.75" y="0.0">org.springframework.jndi.JndiAccessor</node>
-            <node x="518.0" y="162.0">org.springframework.jndi.JndiObjectLocator</node>
-            <node x="175.0" y="162.0">org.springframework.beans.factory.BeanClassLoaderAware</node>
-            <node x="611.25" y="81.0">org.springframework.beans.factory.InitializingBean</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="org.springframework.beans.factory.BeanClassLoaderAware" target="org.springframework.beans.factory.Aware">
-              <point x="0.0" y="-15.5" />
-              <point x="267.0" y="137.0" />
-              <point x="195.1111111111111" y="137.0" />
-              <point x="21.0" y="15.5" />
-            </edge>
-            <edge source="org.springframework.jndi.JndiObjectLocator" target="org.springframework.jndi.JndiLocatorSupport">
-              <point x="-38.25" y="-15.5" />
-              <point x="556.25" y="137.0" />
-              <point x="510.25" y="137.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="org.springframework.jndi.JndiObjectFactoryBean" target="org.springframework.jndi.JndiObjectLocator">
-              <point x="67.5" y="-15.5" />
-              <point x="420.25" y="223.0" />
-              <point x="594.5" y="223.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="org.springframework.jndi.JndiLocatorSupport" target="org.springframework.jndi.JndiAccessor">
-              <point x="0.0" y="-15.5" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="org.springframework.jndi.JndiObjectFactoryBean" target="org.springframework.beans.factory.BeanClassLoaderAware">
-              <point x="-22.5" y="-15.5" />
-              <point x="330.25" y="213.0" />
-              <point x="267.0" y="213.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="org.springframework.jndi.JndiObjectFactoryBean" target="org.springframework.beans.factory.FactoryBean">
-              <point x="22.5" y="-15.5" />
-              <point x="375.25" y="213.0" />
-              <point x="438.5" y="213.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="org.springframework.jndi.JndiObjectFactoryBean" target="org.springframework.beans.factory.BeanFactoryAware">
-              <point x="-67.5" y="-15.5" />
-              <point x="285.25" y="223.0" />
-              <point x="77.5" y="223.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="org.springframework.jndi.JndiObjectLocator" target="org.springframework.beans.factory.InitializingBean">
-              <point x="38.25" y="-15.5" />
-              <point x="632.75" y="137.0" />
-              <point x="678.75" y="137.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="org.springframework.beans.factory.BeanFactoryAware" target="org.springframework.beans.factory.Aware">
-              <point x="0.0" y="-15.5" />
-              <point x="77.5" y="137.0" />
-              <point x="153.1111111111111" y="137.0" />
-              <point x="-21.0" y="15.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="182.0" y="100.0" />
-          <SelectedNodes>
-            <node>org.springframework.beans.factory.FactoryBean</node>
-          </SelectedNodes>
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.19.RELEASE/spring-context-4.3.19.RELEASE.jar!/org/springframework/context/annotation/ConditionEvaluator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="122" column="38" selection-start-line="122" selection-start-column="38" selection-end-line="122" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.19.RELEASE/spring-context-4.3.19.RELEASE.jar!/org/springframework/context/annotation/ConditionContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.3.19.RELEASE/spring-core-4.3.19.RELEASE.jar!/org/springframework/core/type/AnnotatedTypeMetadata.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="19" column="60" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bean/config/condition/ProfileCondition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="28" column="1" lean-forward="true" selection-start-line="12" selection-end-line="28" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bean/config/condition/Condition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -995,13 +844,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/bean/soundsystem/sound-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1140,39 +982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/AudienceXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding>
-            <element signature="e#497#498#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/TrackCounterConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/aop/TrackCounterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="18" selection-start-line="18" selection-end-line="19" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1339#1340#0" expanded="true" />
-            <element signature="e#1392#1393#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/bean/PersistenceTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -1187,39 +996,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/aop/PerformanceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
-            <element signature="e#918#919#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="34" column="24" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="24" />
-        </state>
-      </provider>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.19.RELEASE/spring-aop-4.3.19.RELEASE.jar!/org/springframework/aop/config/spring-aop-2.0.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/Performance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="189">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/TrackCounter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/AudienceXML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+        <state relative-caret-position="507">
+          <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1228,13 +1021,119 @@
         <state relative-caret-position="-828" />
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.19.RELEASE/spring-aop-4.3.19.RELEASE.jar!/org/springframework/aop/config/spring-aop-2.0.xsd">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/aop/aop-config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        <state relative-caret-position="253">
+          <caret line="42" column="96" selection-start-line="42" selection-start-column="96" selection-end-line="42" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/bean/soundsystem/cdplayer-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="49" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="17" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/bean/soundsystem/sound-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/TrackCounterXML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/CompactDiscAop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.19.RELEASE/spring-context-4.3.19.RELEASE.jar!/org/springframework/stereotype/Component.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/TrackCounterConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="811">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/aop/PerformanceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="15" selection-start-line="15" selection-end-line="16" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#892#893#0" expanded="true" />
+            <element signature="e#918#919#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/aop/CompactDiscAopTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="17" column="64" lean-forward="true" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
+          <folding>
+            <element signature="e#649#650#0" expanded="true" />
+            <element signature="e#681#682#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/aop/aop-track-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/aop/TrackCounterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/BlankDisc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="88" column="36" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aop/CriticAspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
         </state>
       </provider>
     </entry>

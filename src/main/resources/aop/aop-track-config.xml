@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="trackCounter" class="com.aop.TrackCounterXML"/>
+
+    <bean id="cd" class="com.aop.BlankDisc">
+        <property name="title" value="Sgt . HHHH"/>
+        <property name="artist" value="GMS." />
+        <property name="tracks">
+            <list>
+                <value>With a Little Help From My Friends</value>
+                <value>Lucky in skay </value>
+                <value>Getting Better</value>
+                <value>Fixxing a Hole</value>
+            </list>
+        </property>
+    </bean>
+
+    <aop:config>
+        <aop:aspect ref="trackCounter">
+            <aop:pointcut id="trackPlayed" expression="execution(* com.aop.CompactDiscAop.playTrack(int ))
+                and args(trackNumber)"/>
+
+            <aop:around method="countTrack" pointcut-ref="trackPlayed" />
+
+        </aop:aspect>
+    </aop:config>
+
+</beans>
