@@ -1,8 +1,5 @@
 package com.bean.soundsystem;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -11,14 +8,35 @@ import java.util.List;
  * @Date: 2018/11/27 17:10
  * @Description:
  */
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class BlankDisc implements CompactDisc {
 
     private String title ;
     private String artist;
     private List<String> tracks;   // 磁道列表
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+    public List<String> getTracks() {
+        return tracks;
+    }
+
+    public void setTracks(List<String> tracks) {
+        this.tracks = tracks;
+    }
 
     // public  BlankDisc(String title, String artist, List<String> tracks){
     //     this.title = title;

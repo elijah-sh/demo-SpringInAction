@@ -1,9 +1,6 @@
 package com.aop;
 
 import com.bean.soundsystem.CompactDisc;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -13,8 +10,7 @@ import java.util.List;
  * @Date: 2018/11/27 17:10
  * @Description:
  */
-@Data
-@NoArgsConstructor
+//@NoArgsConstructor
 //@AllArgsConstructor
 @Component
 public class BlankDisc implements CompactDiscAop {

@@ -21,7 +21,7 @@ public class ExpressiveConfig {
     @Autowired
     private Environment environment;
 
-    @Bean
+   /* @Bean
     public BlankDisc disc(){
         if (!environment.containsProperty("disc.title")){
             return null;
@@ -31,5 +31,5 @@ public class ExpressiveConfig {
                 //  这样在指定属性不存  在的时候， 会使用一个默认值：
                 environment.getProperty("disc.artist","jack.chou"),
                 null);
-    }
+    }*/
 }

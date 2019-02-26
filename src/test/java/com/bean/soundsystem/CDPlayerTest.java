@@ -3,7 +3,6 @@ package com.bean.soundsystem;
 
 import com.bean.soundsystem.config.CDPlayerConfig;
 import com.bean.soundsystem.config.SoundSystemConfig;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
