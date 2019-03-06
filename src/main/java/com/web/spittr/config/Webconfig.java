@@ -57,6 +57,11 @@ public class Webconfig extends WebMvcConfigurerAdapter {
         templateEngine.setTemplateResolver(templateResolver);
         return templateEngine;
     }*/
+
+    /**
+     * 静态文件处理
+     * @param configurer
+     */
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer){
         configurer.enable();
