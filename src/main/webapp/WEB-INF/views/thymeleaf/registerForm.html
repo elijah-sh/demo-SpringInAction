@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: ShenShuaihu
+  Date: 2019/3/1
+  Time: 9:59
+为registerForm
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spittle</title>
+</head>
+    <h1>Register</h1>
+
+<form method="POST" th:object="${spitter}" enctype="multipart/form-data">
+
+
+    <!-- 展示错误 -->
+    <form method="post"  th:action="@{/spittle/register}"  th:object="${spittle}">
+
+        <div class="errors" th:if="${#fields.hasErrors('*')}">
+            <ul>
+                <li th:each="err : ${#fields.errors('*')}"
+                    th:text="${err}">Input is incorrect</li>
+            </ul>
+        </div>
+
+        <div th:if="${#fields.hasErrors('*')}">
+            <ul>
+                <li th:each="err : ${(#fields.errors('*'))}"
+                    th:text="${err}">
+                    Input is incorrect
+                </li>
+            </ul>
+        </div>
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:class="'error'">something</p>
+        <label th:class="${#fields.hasErrors('firstName')}? 'error'" >
+            First Name
+        </label>
+
+        <input type="text" th:field="*{firstName}"
+                th:class="${#fields.hasErrors('firstName')}? 'error'"/> <br/>
+
+        <label th:class="${#fields.hasErrors('lastName')}? 'error'" >
+            Last Name
+        </label>
+        <input type="text" th:field="*{lastName}"
+               th:class="${#fields.hasErrors('lastName')}? 'error'"/> <br/>
+
+        Username: <input name="username" type="text"/> <br/>
+        Password: <input name="password" type="password"/> <br/>
+
+        <input type="submit" name="register"/>
+
+    </form>
+
+
+
+
+</html>

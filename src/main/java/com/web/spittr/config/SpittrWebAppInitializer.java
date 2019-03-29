@@ -1,7 +1,9 @@
 package com.web.spittr.config;
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;
 
 /**
  * @Auther: shuaihu.shen@hand-china.com
@@ -17,13 +19,17 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class SpittrWebAppInitializer
         extends AbstractAnnotationConfigDispatcherServletInitializer {
 
+    /**
+     * 附加性配置文件
+     * @return
+     */
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[]{ RootConfig.class};
     }
 
     /**
-     * 指定配置类
+     * 核心配置类
      * @return
      */
     @Override
@@ -40,5 +46,11 @@ public class SpittrWebAppInitializer
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setMultipartConfig(
+                new MultipartConfigElement("/tmp/spittr/uploads", 2097152, 4194304, 0));
     }
 }

@@ -1,0 +1,21 @@
+<!-- 欢迎应用的用户  首页
+并提供了两个链接：一个是查看Spittle列表，另一个是在应用中进行注册。
+-->
+<!--声明 Thymeleaf命名空间-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Spittr</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>
+    </head>
+    <body>
+        <h1>Welcome to Spittr by thymeleaf</h1>
+
+        <a th:href="@{/spittle/spittles}">Spittles</a> |
+        <a th:href="@{/spittle/register}">Register</a>
+        <br/>
+
+        <br/>
+        <a href="spittle/spittles">Spittles</a> |
+        <a href="spittle/register">Register</a>
+    </body>
+</html>

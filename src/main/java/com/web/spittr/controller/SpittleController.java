@@ -5,18 +5,17 @@
  */
 package com.web.spittr.controller;
 
+import com.web.spittr.Spitter;
 import com.web.spittr.Spittle;
 import com.web.spittr.data.SpittleRepository;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 
@@ -27,16 +26,16 @@ import java.util.List;
  * @data: 2019-02-28 11:24
  */
 @Controller
-@RequestMapping("/spitter")
+@RequestMapping("/spittle")
 public class SpittleController {
     protected static final Long MAX_VALUE = Long.MAX_VALUE;
     protected static final int DEFAULT_COUNT_SIZE = 20;
-    private SpittleRepository spittleRepository;
 
     @Autowired
-    public SpittleController(SpittleRepository spittleRepository) {
+    SpittleRepository spittleRepository;
+   /* public SpittleController(SpittleRepository spittleRepository) {
         this.spittleRepository = spittleRepository;
-    }
+    }*/
 
     @RequestMapping(value = "spittles", method = RequestMethod.GET)
     public String spittlels(Model model) {
@@ -59,7 +58,7 @@ public class SpittleController {
     public String showSpittles(@RequestParam(value = "max",defaultValue = "MAX_VALUE",required = true) long max,
                                @RequestParam(value = "count",defaultValue = "DEFAULT_COUNT_SIZE",required = true) int count,
                                Model model) {
-        List<Spittle> spittleList = spittleRepository.findSpittles(max, count);
+        List<Spitter> spittleList = spittleRepository.findSpittles(max, count);
         model.addAttribute("spittleList", spittleList);
         return "spittles";
     }
@@ -90,19 +89,19 @@ public class SpittleController {
 
     /**
      * 注册BO 带有校验
-     * @param spittle
+     * @param spitter
      * @param errors
-     * @return
+     * @return @Validated
      */
     @RequestMapping(value = "register", method = RequestMethod.POST)
-    public String processRegistration(@Validated Spittle spittle, Errors errors) {
+    public String processRegistration(@Valid @ModelAttribute(value="spittle") Spitter spitter, Errors errors) {
 
         // 如果表单校验出差，则返回到注册页面
         if (errors.hasErrors()) {
             return "registerForm";
         }
         // 重定向到基本信息页
-        return "redirect:/spitter" + spittle.getUsername();
+        return "redirect:/spittle/" + spitter.getUsername();
     }
 
 
@@ -114,7 +113,7 @@ public class SpittleController {
      */
     @RequestMapping(value = "spittle/{username}", method = RequestMethod.GET)
     public String spittle(@PathVariable("username") String username, Model model) {
-        List<Spittle> spittleList = new ArrayList<>();
+        List<Spitter> spittleList = new ArrayList<>();
         spittleList.add(spittleRepository.findByUsername(username));
         model.addAttribute("spittleList", spittleList);
         return "spittles";

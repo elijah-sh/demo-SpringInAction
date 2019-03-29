@@ -5,6 +5,7 @@
  */
 package com.web.spittr.data;
 
+import com.web.spittr.Spitter;
 import com.web.spittr.Spittle;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public interface SpittleRepository {
      * @param count  表明要返回多少个Spittle对象
      * @return Spittle对象
      */
-    List<Spittle> findSpittles(long max, int count);
+    List<Spitter> findSpittles(long max, int count);
 
 
     /**
@@ -45,6 +46,9 @@ public interface SpittleRepository {
      * @param username
      * @return
      */
-    Spittle findByUsername(String username);
+    Spitter findByUsername(String username);
+
+    List<Spittle> findRecentSpittles();
+
 
 }
