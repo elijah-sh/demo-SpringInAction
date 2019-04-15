@@ -94,9 +94,9 @@ public class SpittleController {
      * @return @Validated
      */
     @RequestMapping(value = "register", method = RequestMethod.POST)
-    public String processRegistration(@Valid @ModelAttribute(value="spittle") Spitter spitter, Errors errors) {
+    public String processRegistration(@Valid @ModelAttribute(value="spitter") Spitter spitter, Errors errors) {
 
-        // 如果表单校验出差，则返回到注册页面
+        // 如果表单校验出错，则返回到注册页面
         if (errors.hasErrors()) {
             return "registerForm";
         }
@@ -116,6 +116,13 @@ public class SpittleController {
         List<Spitter> spittleList = new ArrayList<>();
         spittleList.add(spittleRepository.findByUsername(username));
         model.addAttribute("spittleList", spittleList);
+
+        for (Spitter spitter : spittleList) {
+            
+        }
+        for (int i = 0; i < spittleList.size(); i++) {
+            
+        }
         return "spittles";
     }
 }

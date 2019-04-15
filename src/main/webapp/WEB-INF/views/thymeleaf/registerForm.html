@@ -10,10 +10,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Spittle</title>
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/resources/static/style.css}"></link>
 </head>
     <h1>Register</h1>
-
-<form method="POST" th:object="${spitter}" enctype="multipart/form-data">
 
 
     <!-- 展示错误 -->
@@ -28,7 +28,7 @@
 
         <div th:if="${#fields.hasErrors('*')}">
             <ul>
-                <li th:each="err : ${(#fields.errors('*'))}"
+                <li th:each="err : ${#fields.errors('*')}"
                     th:text="${err}">
                     Input is incorrect
                 </li>
@@ -54,8 +54,6 @@
         <input type="submit" name="register"/>
 
     </form>
-
-
 
 
 </html>

@@ -1,5 +1,6 @@
 package com.web.spittr.controller;
 
+import com.web.spittr.Spitter;
 import com.web.spittr.Spittle;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,8 @@ public class HomeController {
         return "index";
     }
 
+
+
     @RequestMapping(value = "/test", method = GET)
     public String spittlels(Model model) {
         // 将spittle添加到模型中
@@ -30,5 +33,12 @@ public class HomeController {
         model.addAttribute("spittle", spittle);
         // 返回视图名
         return "index";
+    }
+
+
+    @RequestMapping(value="/register", method=GET)
+    public String showRegistrationForm(Model model) {
+        model.addAttribute(new Spitter());
+        return "register_form";
     }
 }
