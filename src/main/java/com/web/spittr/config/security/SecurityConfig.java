@@ -1,0 +1,75 @@
+package com.web.spittr.config.security;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
+
+import javax.sql.DataSource;
+
+
+@Configuration
+@EnableWebMvcSecurity
+//@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    /**
+     * 在第一个查询中，我们获取了用户的用户名、密码以及是否启用的信息，这些信息会用来进行用户认证。
+     * 接下来的查询查找了用户所授予的权限，用来进行鉴权，
+     * 最后一个查询中，查找了用户作为群组的成员所授予的权限
+     */
+    public static final String DEF_USERS_BY_USERNAME_QUERY = "select username, password, enabled from users where username = ?";
+    public static final String DEF_AUTHORITIES_BY_USERNAME_QUERY = "select username, authority from authorities where username = ?";
+    public static final String DEF_GROUP_AUTHORITIES_BY_USERNAME_QUERY = "select g.id, g.group_name, ga.authority " +
+            "from group g, group_members gm, group_authorities ga " +
+            "where gm.username = ? and g.id = ga.group_id and g.id = gm.group_id";
+
+    @Autowired
+    DataSource dataSource;
+
+
+
+    /**
+     *  使用jdbc进行访问
+     *   只重写了认证和基本权限的查询语句
+     * @param auth
+     * @throws Exception
+     */
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        // 启用内存用户储存
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery("select username, password, true from Spitter where username = ?")
+                .authoritiesByUsernameQuery("selcet username, 'ROLE_USER' from Spitter where username= ?")
+                .passwordEncoder(new StandardPasswordEncoder("33"));
+    }
+
+    /**
+     *
+     * @param auth
+     * @throws Exception
+     */
+   /* @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        // 启用内存用户储存
+        auth.inMemoryAuthentication()
+                .withUser("user").password("password").roles("USER").and()
+                .withUser("admin").password("password").roles("USER","ADMIN");
+    }*/
+
+    /*protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeRequests()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .formLogin()
+                .and()
+                .httpBasic();
+    }*/
+
+
+}

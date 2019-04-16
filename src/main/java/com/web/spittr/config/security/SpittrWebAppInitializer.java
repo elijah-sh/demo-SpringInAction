@@ -1,5 +1,7 @@
-package com.web.spittr.config;
+package com.web.spittr.config.security;
 
+import com.web.spittr.config.RootConfig;
+import com.web.spittr.config.Webconfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.MultipartConfigElement;
