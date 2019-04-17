@@ -10,8 +10,14 @@
       <img src="/resources/static/8/spitter_logo_50.png"  border="0" /></a>
 
     <div id="content">
+
+      <h1>跨域请求</h1>
+      <form method="post" action="http://www.spittr.com/spittle/register">
+          <input type="hidden" name="message" value=" I`m stupid!" />
+          <input type="submit" value="Click here to win a new car!" />
+      </form>
       <h1>Register</h1>
-  
+
         <form method="POST"  th:action="@{/spittle/register}"  th:object="${spitter}">
 
         <div class="errors" th:if="${#fields.hasErrors('*')}">

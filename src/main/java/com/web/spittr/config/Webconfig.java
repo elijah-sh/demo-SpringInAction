@@ -8,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.thymeleaf.spring3.SpringTemplateEngine;
+import org.thymeleaf.spring3.dialect.SpringStandardDialect;
 import org.thymeleaf.spring3.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import org.thymeleaf.templateresolver.TemplateResolver;
@@ -57,6 +58,8 @@ public class Webconfig extends WebMvcConfigurerAdapter {
     public SpringTemplateEngine templateEngine(TemplateResolver templateResolver) {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver);
+        // 注册安全方言
+        templateEngine.addDialect(new SpringStandardDialect());
         return templateEngine;
     }
 

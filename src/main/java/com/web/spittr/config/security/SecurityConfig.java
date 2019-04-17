@@ -42,13 +42,46 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
-        httpSecurity.authorizeRequests()
-                .antMatchers("/spitters/me")
-                .authenticated()
-                .antMatchers(HttpMethod.POST, "/spittles")
-                .authenticated()
-                .anyRequest()
-                .permitAll();
+        // 启用默认的登录页
+        httpSecurity.formLogin()
+                .loginPage("/login")
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
+                .logoutUrl("/signout")
+                .and()
+                .rememberMe()
+                .tokenValiditySeconds(2439800)
+                .key("spittrKey")
+                .and()
+                .httpBasic()
+                .realmName("Spittr")
+                .and()
+                .authorizeRequests()
+                .antMatchers("/spitter/me").hasRole("SPITTER")
+                .anyRequest().permitAll()
+                .and()
+                .requiresChannel()
+                .antMatchers("/spitter/from")
+                .requiresSecure();
+
+        // 需要HTTPS
+        //httpSecurity.authorizeRequests()
+        //        .antMatchers("/spitter/me").hasRole("SPITTER")
+        //        .antMatchers(HttpMethod.POST, "/spitter/me").hasRole("SPITTER")
+        //        .anyRequest().permitAll()
+        //        .and()
+        //        .requiresChannel()
+        //        .antMatchers("/spitter/from")
+        //        .requiresSecure();
+
+        //httpSecurity.authorizeRequests()
+        //        .antMatchers("/spitters/me")
+        //        .authenticated()
+        //        .antMatchers(HttpMethod.POST, "/spittles")
+        //        .authenticated()
+        //        .anyRequest()
+        //        .permitAll();
         //.antMatchers("/spitter/**","/spitters/mine").authenticated()
 
     }
