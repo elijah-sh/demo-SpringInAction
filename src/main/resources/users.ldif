@@ -1,0 +1,12 @@
+dn: ou=groups,dc=habuma,dc=com
+objectclass: top
+objectclass: organizationlUnit
+ou: perple
+dn: uid=habuma,ou=perple,dc=habuma,dc=com
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Craig Walls
+uid: habuma
+userPassword: password

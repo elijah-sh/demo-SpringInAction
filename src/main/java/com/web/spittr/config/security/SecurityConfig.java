@@ -1,14 +1,20 @@
 package com.web.spittr.config.security;
 
+import com.web.spittr.data.SpittleRepository;
+import com.web.spittr.service.SpitterUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
+import sun.security.provider.MD5;
 
 import javax.sql.DataSource;
+
 
 
 @Configuration
@@ -30,7 +36,42 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     DataSource dataSource;
 
+    @Autowired
+    SpittleRepository spittleRepository;
 
+    @Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+
+        httpSecurity.authorizeRequests()
+                .antMatchers("/spitters/me")
+                .authenticated()
+                .antMatchers(HttpMethod.POST, "/spittles")
+                .authenticated()
+                .anyRequest()
+                .permitAll();
+        //.antMatchers("/spitter/**","/spitters/mine").authenticated()
+
+    }
+    /**
+     *  LDAP简单查询
+     * @param auth
+     * @throws Exception
+     */
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        // 启用内存用户储存
+        auth.ldapAuthentication()
+                .userSearchBase("ou=people")
+                .userSearchFilter("(uid={0})")
+                .groupSearchBase("ou=groups")
+                .groupSearchFilter("(member={0})")
+                .contextSource().root("dc=habuma,dc=com").ldif("classpath:users.ldif")
+                //.passwordCompare()
+                //.passwordEncoder(new MD5())
+                //.passwordAttribute("passcode")
+                ;
+       // auth.userDetailsService(new SpitterUserDetailService());
+    }
 
     /**
      *  使用jdbc进行访问
@@ -38,7 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * @param auth
      * @throws Exception
      */
-    @Override
+   /* @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // 启用内存用户储存
         auth.jdbcAuthentication()
@@ -46,7 +87,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery("select username, password, true from Spitter where username = ?")
                 .authoritiesByUsernameQuery("selcet username, 'ROLE_USER' from Spitter where username= ?")
                 .passwordEncoder(new StandardPasswordEncoder("33"));
-    }
+    }*/
 
     /**
      *
