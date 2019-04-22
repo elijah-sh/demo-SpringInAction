@@ -40,7 +40,7 @@ public class HomeControllerTest {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(homeController).build();
         // 对 "/" 执行GET请求   预期得到home视图
         mockMvc.perform(get("/")).andExpect(view().name("home"));
-        assertEquals("home", homeController.home());
+       // assertEquals("home", in.home());
     }
 
     @Test

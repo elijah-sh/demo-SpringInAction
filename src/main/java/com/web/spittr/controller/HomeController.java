@@ -2,6 +2,7 @@ package com.web.spittr.controller;
 
 import com.web.spittr.Spitter;
 import com.web.spittr.Spittle;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +20,14 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 public class HomeController {
 
     @RequestMapping(value = "/", method = GET)
-    public String home(){
-        return "index";
+    public String login(){
+        return "login";
     }
 
-
+  /*  @RequestMapping(value = "/login", method = GET)
+    public String login(){
+        return "login";
+    }*/
 
     @RequestMapping(value = "/test", method = GET)
     public String spittlels(Model model) {

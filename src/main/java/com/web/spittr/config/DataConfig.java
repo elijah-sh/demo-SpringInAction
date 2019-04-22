@@ -22,9 +22,9 @@ public class DataConfig {
             .build();
   }*/
 
-  @Bean
+  /*@Bean
   public JdbcOperations jdbcTemplate(DataSource dataSource) {
     return new JdbcTemplate(dataSource);
-  }
-  
+  }*/
+
 }

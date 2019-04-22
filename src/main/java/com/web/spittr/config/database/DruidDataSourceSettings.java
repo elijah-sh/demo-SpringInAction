@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-@PropertySource("classpath:druid.properties")
+@PropertySource("classpath:config.properties")
 @Data
 public class DruidDataSourceSettings {
 

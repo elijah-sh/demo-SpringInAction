@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
     @Test
     public void embarkOnQuest() {
         // 创建 Quest
-        Quest mockQuest = new Quest( ) {
+       /* Quest mockQuest = new Quest( ) {
             @Override
             public void embark() {
                 System.out.println("......");
@@ -28,7 +28,7 @@ import static org.junit.Assert.*;
         };
         // 注入 Quest
         BraveKnight knight = new BraveKnight(mockQuest);
-        knight.embarkOnQuest();
+        knight.embarkOnQuest();*/
        // verify(mockQuest).embark();
     }
 

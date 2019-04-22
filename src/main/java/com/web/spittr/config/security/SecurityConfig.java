@@ -1,25 +1,27 @@
 package com.web.spittr.config.security;
 
 import com.web.spittr.data.SpittleRepository;
-import com.web.spittr.service.SpitterUserDetailService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
-import sun.security.provider.MD5;
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import javax.sql.DataSource;
-
 
 
 @Configuration
 @EnableWebMvcSecurity
 //@EnableWebSecurity
+@Slf4j
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
@@ -41,29 +43,38 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-
+        System.out.println(" 加载Security  HttpSecurity---------------------");
+        log.debug("加载Security。。。 http");
         // 启用默认的登录页
-        httpSecurity.formLogin()
+        httpSecurity
+                .formLogin()
                 .loginPage("/login")
-                .and()
-                .logout()
-                .logoutSuccessUrl("/")
-                .logoutUrl("/signout")
-                .and()
-                .rememberMe()
-                .tokenValiditySeconds(2439800)
-                .key("spittrKey")
-                .and()
-                .httpBasic()
-                .realmName("Spittr")
-                .and()
-                .authorizeRequests()
-                .antMatchers("/spitter/me").hasRole("SPITTER")
-                .anyRequest().permitAll()
-                .and()
-                .requiresChannel()
-                .antMatchers("/spitter/from")
-                .requiresSecure();
+                .defaultSuccessUrl("/spittle/")
+                .failureUrl("/spittle/login?error=true")
+                //.and()
+                //    .logout()
+                //    .logoutSuccessUrl("/login")
+                //    .logoutUrl("/signout")
+                //.and()
+                //.rememberMe()
+                //.tokenValiditySeconds(2439800)
+                //.key("spittrKey")
+                //.and()
+                //.httpBasic()
+                //.realmName("Spittr")
+                //.and()
+                //    .authorizeRequests()
+                //    .antMatchers("/spittle/me").hasRole("USER")
+                //    .anyRequest()
+                //    .permitAll()
+                //.and()
+                //    .requiresChannel()
+                //    .antMatchers("/spittle/from")
+                //    .requiresSecure()
+
+        ;
+
+        httpSecurity.csrf().disable();
 
         // 需要HTTPS
         //httpSecurity.authorizeRequests()
@@ -90,7 +101,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * @param auth
      * @throws Exception
      */
-    @Override
+/*    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // 启用内存用户储存
         auth.ldapAuthentication()
@@ -104,7 +115,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //.passwordAttribute("passcode")
                 ;
        // auth.userDetailsService(new SpitterUserDetailService());
-    }
+    }*/
 
     /**
      *  使用jdbc进行访问
@@ -112,14 +123,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * @param auth
      * @throws Exception
      */
-   /* @Override
+/*    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // 启用内存用户储存
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .usersByUsernameQuery("select username, password, true from Spitter where username = ?")
                 .authoritiesByUsernameQuery("selcet username, 'ROLE_USER' from Spitter where username= ?")
-                .passwordEncoder(new StandardPasswordEncoder("33"));
+              //  .passwordEncoder(new StandardPasswordEncoder("33"))
+        ;
     }*/
 
     /**
@@ -127,13 +139,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * @param auth
      * @throws Exception
      */
-   /* @Override
+    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        System.out.println("加载Security。。。读取权限");
         // 启用内存用户储存
         auth.inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER").and()
-                .withUser("admin").password("password").roles("USER","ADMIN");
-    }*/
+                .passwordEncoder(NoOpPasswordEncoder.getInstance())
+                .withUser("user").password("1").roles("USER").and()
+                .withUser("admin").password("1").roles("USER","ADMIN");
+    }
 
     /*protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
@@ -144,6 +158,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .httpBasic();
     }*/
+
+
+/*    @Bean
+    public PersistentTokenRepository persistentTokenRepository() {
+        JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
+        // 配置数据源
+        jdbcTokenRepository.setDataSource(dataSource);
+        // 第一次启动的时候自动建表（可以不用这句话，自己手动建表，源码中有语句的）
+//         jdbcTokenRepository.setCreateTableOnStartup(true);
+        return jdbcTokenRepository;
+    }*/
+
 
 
 }

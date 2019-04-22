@@ -50,5 +50,9 @@ public interface SpittleRepository {
 
     List<Spittle> findRecentSpittles();
 
-
+    /**
+     * 查询所有
+     * @return
+     */
+    List<Spitter> findAllSpitters();
 }

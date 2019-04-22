@@ -8,15 +8,19 @@ package com.web.spittr.controller;
 import com.web.spittr.Spitter;
 import com.web.spittr.Spittle;
 import com.web.spittr.data.SpittleRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import sun.security.krb5.internal.AuthorizationData;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 
 /**
@@ -27,15 +31,50 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/spittle")
+@SessionAttributes("spitter")
+@Slf4j
 public class SpittleController {
-    protected static final Long MAX_VALUE = Long.MAX_VALUE;
-    protected static final int DEFAULT_COUNT_SIZE = 20;
+    public static final Long MAX_VALUE = Long.MAX_VALUE;
+    public static final int DEFAULT_COUNT_SIZE = 20;
+    public static final String LOGIN_USERNAME = "shen";
+    public static final String LOGIN_PASSWORD = "1";
 
     @Autowired
     SpittleRepository spittleRepository;
-   /* public SpittleController(SpittleRepository spittleRepository) {
-        this.spittleRepository = spittleRepository;
-    }*/
+
+    /**
+     * 登录成功之后的页面
+     * @return
+     */
+    @RequestMapping(value = "/")
+    public String index(){
+        return "index";
+    }
+
+    @RequestMapping(value = "/login/t", method = RequestMethod.POST)
+    public String login(Spitter spitter) {
+        // AuthorizationData
+        log.debug("登录信息[]",spitter.toString());
+        if (LOGIN_USERNAME.equals(spitter.getUsername())
+                && (LOGIN_PASSWORD.equals(spitter.getPassword()))) {
+            return "index";
+        } else {
+            return "login";
+        }
+
+
+    }
+    @RequestMapping(value = "/login")
+    public String login(@RequestParam(value = "error", required = false) String error,
+                        @RequestParam(value = "logout", required = false) String logout,Model model) {
+        if (error != null) {
+            model.addAttribute("msg", "username or password is error !");
+        }
+        if (logout != null) {
+            model.addAttribute("msg", "exit success !");
+        }
+        return "login";
+    }
 
     @RequestMapping(value = "spittles", method = RequestMethod.GET)
     public String spittlels(Model model) {
@@ -125,4 +164,10 @@ public class SpittleController {
         }
         return "spittles";
     }
+
+    @RequestMapping(value = "findAllSpitters", method = RequestMethod.GET)
+    public List<Spitter> findAllSpitters() {
+        return spittleRepository.findAllSpitters();
+    }
+
 }
