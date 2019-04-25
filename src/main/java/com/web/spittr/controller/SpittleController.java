@@ -31,7 +31,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
  */
 @Controller
 @RequestMapping("/spittle")
-@SessionAttributes("spitter")
 @Slf4j
 public class SpittleController {
     public static final Long MAX_VALUE = Long.MAX_VALUE;
@@ -88,21 +87,13 @@ public class SpittleController {
 
     /**
      * 展示不同数量的数据
-     * @param max 最大值
-     * @param count 数量
-     * @param model
      * @return spitterList
      */
     @RequestMapping(value = "show", method = RequestMethod.GET)
-    public String showSpittles(@RequestParam(value = "max",defaultValue = "MAX_VALUE",required = true) long max,
-                               @RequestParam(value = "count",defaultValue = "DEFAULT_COUNT_SIZE",required = true) int count,
-                               Model model) {
-        List<Spitter> spittleList = spittleRepository.findSpittles(max, count);
-        model.addAttribute("spittleList", spittleList);
+    public String showSpittles(Model model) {
+        model.addAttribute("spittleList", spittleRepository.findSpittles(MAX_VALUE, DEFAULT_COUNT_SIZE));
         return "spittles";
     }
-
-
     /**
      * 通过id查找
      * @param spittleId
@@ -123,7 +114,7 @@ public class SpittleController {
      */
     @RequestMapping(value = "register", method = RequestMethod.GET)
     public String showRegisterationFrom() {
-        return "registerForm";
+        return "register_form";
     }
 
     /**

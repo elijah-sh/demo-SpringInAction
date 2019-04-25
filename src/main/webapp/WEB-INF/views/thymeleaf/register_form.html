@@ -18,14 +18,8 @@
       </form>
       <h1>Register</h1>
 
-        <form method="POST"  th:action="@{/spittle/register}"  th:object="${spitter}">
+       <!-- <form method="POST"  th:action="@{/spittle/register}"  th:object="${spitter}">
 
-        <div class="errors" th:if="${#fields.hasErrors('*')}">
-          <ul>
-            <li th:each="err : ${#fields.errors('*')}"
-                th:text="${err}">Input is incorrect</li>
-          </ul>
-        </div>
         <label th:class="${#fields.hasErrors('firstName')}? 'error'">First Name</label>:
           <input type="text" th:field="*{firstName}"
                  th:class="${#fields.hasErrors('firstName')}? 'error'" /><br/>
@@ -52,7 +46,7 @@
                  accept="/resources/static/image/jpeg,/resources/static/image/png,/resources/static/image/gif" /><br/>
 
         <input type="submit" value="Register" />
-      </form>
+      </form>-->
     </div>
     <div id="footer" th:include="page :: copy"></div>
   </body>

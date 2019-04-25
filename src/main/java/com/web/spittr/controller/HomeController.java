@@ -19,7 +19,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @Controller
 public class HomeController {
 
-    @RequestMapping(value = "/", method = GET)
+    @RequestMapping({"/", "login"})
     public String login(){
         return "login";
     }

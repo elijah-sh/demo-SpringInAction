@@ -19,6 +19,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -41,7 +42,15 @@ public class JdbcSpitterRepository implements SpittleRepository {
     }
     @Override
     public List<Spitter> findSpittles(long max, int count) {
-        return null;
+        List<Spitter> spitters = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            Spitter spitter = new Spitter();
+            spitter.setFirstName("LEE"+i);
+            spitter.setLastName("JACK");
+            spitters.add(spitter);
+        }
+        return spitters;
     }
 
     @Override

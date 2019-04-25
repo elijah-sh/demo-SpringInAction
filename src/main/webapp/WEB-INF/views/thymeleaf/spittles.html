@@ -10,12 +10,7 @@
     <body>
 
     <br/>
-        <h1>Welcome to Spittr by thymeleaf</h1>
-        <h3> index.html </h3>
-        <a th:href="@{/spittle/show}">Spittles</a> |
-        <a th:href="@{/spittle/register}">Register</a>
-        <br/>
-
-        <br/>
+        <h1>Welcome to Spittr spittleList</h1>
+            <p th:text="${spittleList} "></p>
     </body>
 </html>

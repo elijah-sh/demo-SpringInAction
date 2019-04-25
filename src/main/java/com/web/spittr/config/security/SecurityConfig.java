@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
@@ -51,22 +52,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .defaultSuccessUrl("/spittle/")
                 .failureUrl("/spittle/login?error=true")
-                //.and()
-                //    .logout()
-                //    .logoutSuccessUrl("/login")
-                //    .logoutUrl("/signout")
-                //.and()
-                //.rememberMe()
-                //.tokenValiditySeconds(2439800)
-                //.key("spittrKey")
+                .and()
+                    .logout()
+                    .logoutSuccessUrl("/login")
+                    .logoutUrl("/spittle/login?logout=true")
+                .and()
+                .rememberMe()
+                .tokenValiditySeconds(2439800)
+                .key("spittrKey")
                 //.and()
                 //.httpBasic()
                 //.realmName("Spittr")
-                //.and()
-                //    .authorizeRequests()
-                //    .antMatchers("/spittle/me").hasRole("USER")
-                //    .anyRequest()
-                //    .permitAll()
+                .and()
+                    .authorizeRequests()
+                    .antMatchers("/spittle/user/*").hasRole("USER")
+                    .antMatchers("/spittle/admin/*").hasRole("ADMIN")
+                    .anyRequest()
+                    .permitAll()
                 //.and()
                 //    .requiresChannel()
                 //    .antMatchers("/spittle/from")
@@ -140,13 +142,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * @throws Exception
      */
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth) throws AuthenticationException {
         System.out.println("加载Security。。。读取权限");
         // 启用内存用户储存
-        auth.inMemoryAuthentication()
+       /* auth.inMemoryAuthentication()
                 .passwordEncoder(NoOpPasswordEncoder.getInstance())
                 .withUser("user").password("1").roles("USER").and()
-                .withUser("admin").password("1").roles("USER","ADMIN");
+                .withUser("admin").password("1").roles("USER","ADMIN");*/
+
+        try {
+            auth.jdbcAuthentication()
+                    .dataSource(dataSource)
+                    .usersByUsernameQuery("select username, password, enabled from spitter where username = ?")
+                    .authoritiesByUsernameQuery("select username, ROLE_USER from spitter where username = ?");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /*protected void configure(HttpSecurity httpSecurity) throws Exception {
