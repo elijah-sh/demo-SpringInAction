@@ -42,7 +42,7 @@ public class HomeController {
 
     @RequestMapping(value="/register", method=GET)
     public String showRegistrationForm(Model model) {
-        model.addAttribute(new Spitter());
+       // model.addAttribute(new Spitter());
         return "register_form";
     }
 }

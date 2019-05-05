@@ -19,10 +19,16 @@ import org.springframework.stereotype.Component;
 public class DruidDataSourceSettings {
 
     @Value("${druid.driverClassName}")
-    private String driverClassName;
+    private String druidDriverClassName;
+
+    @Value("${jdbc.driverClassName}")
+    private String jdbcDriverClassName;
+
+    @Value("${jdbc.url}")
+    private String url;
 
     @Value("${druid.url}")
-    private String url;
+    private String druidUrl;
 
     @Value("${druid.username}")
     private String username;

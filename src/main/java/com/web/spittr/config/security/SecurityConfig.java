@@ -37,10 +37,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "where gm.username = ? and g.id = ga.group_id and g.id = gm.group_id";
 
     @Autowired
-    DataSource dataSource;
+    private DataSource dataSource;
 
     @Autowired
-    SpittleRepository spittleRepository;
+    private SpittleRepository spittleRepository;
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -137,7 +137,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }*/
 
     /**
-     *
+     * 从数据库中读取用户和权限信息
      * @param auth
      * @throws Exception
      */

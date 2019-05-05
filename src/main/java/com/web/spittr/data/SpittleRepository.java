@@ -36,17 +36,27 @@ public interface SpittleRepository {
 
     /**
      * 保存方法
-     * @param spittle
+     * @param spitter
      */
-    void save(Spittle spittle );
+    void save(Spitter spitter);
 
+    /**
+     * 添加用户 并赋予user角色
+     * @param spitter
+     */
+    void addSpitter(Spitter spitter);
 
+    /**
+     * 更新user
+     * @param spitter
+     */
+    void update(Spitter spitter);
     /**
      * 根据USERNAME查找实体
      * @param username
      * @return
      */
-    Spitter findByUsername(String username);
+    List<Spitter> findByUsername(String username);
 
     List<Spittle> findRecentSpittles();
 
@@ -55,4 +65,14 @@ public interface SpittleRepository {
      * @return
      */
     List<Spitter> findAllSpitters();
+
+    /**
+     * 通过id查找，java8进行数据的收集
+     * @param id
+     * @return
+     */
+    Spitter findById(Long id);
+
+    int[] batchUpdate(List<Spitter> spitters);
+
 }

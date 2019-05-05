@@ -39,7 +39,7 @@ public class SpittleController {
     public static final String LOGIN_PASSWORD = "1";
 
     @Autowired
-    SpittleRepository spittleRepository;
+    private SpittleRepository spittleRepository;
 
     /**
      * 登录成功之后的页面
@@ -114,7 +114,8 @@ public class SpittleController {
      */
     @RequestMapping(value = "register", method = RequestMethod.GET)
     public String showRegisterationFrom() {
-        return "register_form";
+        return "registerForm";
+      //  return "register_form";
     }
 
     /**
@@ -129,9 +130,18 @@ public class SpittleController {
         // 如果表单校验出错，则返回到注册页面
         if (errors.hasErrors()) {
             return "registerForm";
+        } else {
+           // spittleRepository.addSpitter(spitter);
+            List<Spitter> spitters = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                spitter.setFirstName(spitter.getFirstName() + i);
+                spitter.setEmail(spitter.getEmail() + i + "@163.com");
+                spitters.add(spitter);
+            }
+            spittleRepository.batchUpdate(spitters);
         }
         // 重定向到基本信息页
-        return "redirect:/spittle/" + spitter.getUsername();
+        return "redirect:/spittle/findByUsername?username=" + spitter.getUsername();
     }
 
 
@@ -141,24 +151,32 @@ public class SpittleController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "spittle/{username}", method = RequestMethod.GET)
-    public String spittle(@PathVariable("username") String username, Model model) {
+    //@RequestMapping(value = "spittle/{username}", method = RequestMethod.GET)
+    //public String spittle(@PathVariable("username") String username, Model model) {
+    @RequestMapping(value = "findByName", method = RequestMethod.GET)
+    @ResponseBody
+    public String spittle(String username, Model model) {
         List<Spitter> spittleList = new ArrayList<>();
-        spittleList.add(spittleRepository.findByUsername(username));
-        model.addAttribute("spittleList", spittleList);
-
-        for (Spitter spitter : spittleList) {
-            
-        }
-        for (int i = 0; i < spittleList.size(); i++) {
-            
-        }
-        return "spittles";
+      //  spittleList.add(spittleRepository.findByUsername(username));
+        return spittleList.toString();
     }
 
     @RequestMapping(value = "findAllSpitters", method = RequestMethod.GET)
     public List<Spitter> findAllSpitters() {
         return spittleRepository.findAllSpitters();
     }
+
+    @RequestMapping(value = "findById", method = RequestMethod.GET)
+    @ResponseBody
+    public Spitter findById(Long id) {
+        return spittleRepository.findById(id);
+    }
+
+    @RequestMapping(value = "findByUsername", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Spitter> findByUsername(String username) {
+        return spittleRepository.findByUsername(username);
+    }
+
 
 }

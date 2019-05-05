@@ -1,15 +1,18 @@
 package com.web.spittr.config.database;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import org.apache.commons.dbcp.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -29,8 +32,6 @@ public class DruidDataSourceConfig {
     @Autowired
     private DruidDataSourceSettings druidSettings;
 
-    public static String DRIVER_CLASSNAME ;
-
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertyConfigure(){
         return new PropertySourcesPlaceholderConfigurer();
@@ -42,11 +43,47 @@ public class DruidDataSourceConfig {
      * @throws SQLException
      */
     @Bean
+   // @Profile("dev")
     public DataSource dataSource() throws SQLException {
+        // BasicDataSource ds = new BasicDataSource();
+        //DruidDataSource ds = new DruidDataSource();     // 将读取出来的数据设置到 DruidDataSource 中
+        /**
+         *  在每个连接请求时都会返回一个新建的连接
+         *  与DBCP的BasicDataSource不同，由DriverManagerDataSource提供的连接并没有进行池化管理；
+         */
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName(druidSettings.getJdbcDriverClassName());
+        ds.setUrl(druidSettings.getDruidUrl());
+        ds.setUsername(druidSettings.getUsername());
+        ds.setPassword(druidSettings.getPassword());
+        //ds.setInitialSize(druidSettings.getInitialSize());
+        //ds.setMinIdle(druidSettings.getMinIdle());
+        //ds.setMaxActive(druidSettings.getMaxActive());
+        //ds.setTimeBetweenEvictionRunsMillis(druidSettings.getTimeBetweenEvictionRunsMillis());
+        //ds.setMinEvictableIdleTimeMillis(druidSettings.getMinEvictableIdleTimeMillis());
+        //ds.setValidationQuery(druidSettings.getValidationQuery());
+        //ds.setTestWhileIdle(druidSettings.isTestWhileIdle());
+        //ds.setTestOnBorrow(druidSettings.isTestOnBorrow());
+        //ds.setTestOnReturn(druidSettings.isTestOnReturn());
+        //ds.setPoolPreparedStatements(druidSettings.isPoolPreparedStatements());
+        //ds.setMaxPoolPreparedStatementPerConnectionSize(druidSettings.getMaxPoolPreparedStatementPerConnectionSize());
+        //ds.setFilters(druidSettings.getFilters());
+        //ds.setConnectionProperties(druidSettings.getConnectionProperties());
+        logger.info(" druid datasource config : {} ", ds);
+        System.out.println("数据库配置 DriverManagerDataSource："+ds);
+         return ds;
+    }
+
+    @Bean
+    @Profile("prd")
+    public DataSource druidDataSource() throws SQLException {
         DruidDataSource ds = new DruidDataSource();     // 将读取出来的数据设置到 DruidDataSource 中
-        ds.setDriverClassName(druidSettings.getDriverClassName());
-        DRIVER_CLASSNAME = druidSettings.getDriverClassName();
-        ds.setUrl(druidSettings.getUrl());
+        /**
+         *  在每个连接请求时都会返回一个新建的连接
+         *  与DBCP的BasicDataSource不同，由DriverManagerDataSource提供的连接并没有进行池化管理；
+         */
+        ds.setDriverClassName(druidSettings.getJdbcDriverClassName());
+        ds.setUrl(druidSettings.getDruidUrl());
         ds.setUsername(druidSettings.getUsername());
         ds.setPassword(druidSettings.getPassword());
         ds.setInitialSize(druidSettings.getInitialSize());
@@ -63,8 +100,8 @@ public class DruidDataSourceConfig {
         ds.setFilters(druidSettings.getFilters());
         ds.setConnectionProperties(druidSettings.getConnectionProperties());
         logger.info(" druid datasource config : {} ", ds);
-        System.out.println("数据库配置："+ds);
-         return ds;
+        System.out.println("数据库配置：druidDataSource "+ds);
+        return ds;
     }
 
     /**
@@ -80,8 +117,9 @@ public class DruidDataSourceConfig {
     }
 
     @Bean
-    public JdbcOperations jdbcTemplate(DataSource dataSource) {
+    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
+
 }
 

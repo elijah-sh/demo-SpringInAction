@@ -31,7 +31,7 @@ public class SpitterUserDetailService implements UserDetailService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Spitter spitter = spittleRepository.findByUsername(username);
+        Spitter spitter = spittleRepository.findByUsername(username).get(0);
         if (spitter !=null) {
             // 创建权限列表
             List<GrantedAuthority> authorities = new ArrayList<>();

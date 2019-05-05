@@ -17,36 +17,30 @@
 
 
     <!-- 展示错误 -->
-    <form method="post"  th:action="@{/spittle/register}"  th:object="${spittle}">
+    <form method="post"  th:action="@{/spittle/register}" >
 
-        <div class="errors" th:if="${#fields.hasErrors('*')}">
+       <!-- <div class="errors" th:if="${#fields.hasErrors('*')}">
             <ul>
                 <li th:each="err : ${#fields.errors('*')}"
                     th:text="${err}">Input is incorrect</li>
             </ul>
-        </div>
+        </div>-->
 
-        <div th:if="${#fields.hasErrors('*')}">
-            <ul>
-                <li th:each="err : ${#fields.errors('*')}"
-                    th:text="${err}">
-                    Input is incorrect
-                </li>
-            </ul>
-        </div>
-        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:class="'error'">something</p>
-        <label th:class="${#fields.hasErrors('firstName')}? 'error'" >
+
+        <label>
             First Name
         </label>
 
-        <input type="text" th:field="*{firstName}"
-                th:class="${#fields.hasErrors('firstName')}? 'error'"/> <br/>
+        <input type="text" th:name="firstName"/> <br/>
 
-        <label th:class="${#fields.hasErrors('lastName')}? 'error'" >
+        <label>
             Last Name
         </label>
-        <input type="text" th:field="*{lastName}"
-               th:class="${#fields.hasErrors('lastName')}? 'error'"/> <br/>
+        <input type="text" th:name="lastName"/> <br/>
+        <label>
+            E-Mail
+        </label>
+        <input type="text" th:name="email"/> <br/>
 
         Username: <input name="username" type="text"/> <br/>
         Password: <input name="password" type="password"/> <br/>
