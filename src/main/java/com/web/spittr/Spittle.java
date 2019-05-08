@@ -5,6 +5,11 @@ import java.util.Date;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity //声明实体类
+@Table(name="spittle")//建立实体类和表的映射关系
 public class Spittle {
 
   private final Long id;

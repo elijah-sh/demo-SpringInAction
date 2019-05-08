@@ -9,6 +9,10 @@ import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -19,8 +23,12 @@ import javax.validation.constraints.Size;
  * @data: 2019-02-26 15:27
  */
 @Data
+@Entity //声明实体类
+@Table(name="spitter")//建立实体类和表的映射关系
 public class Spitter {
 
+    @Id
+    @GeneratedValue
     private Long id;
 
     @NotNull

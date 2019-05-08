@@ -13,6 +13,10 @@ import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.JpaVendorAdapter;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.Database;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -24,7 +28,7 @@ import java.sql.SQLException;
  * @Date: 2018/11/1 14:23
  * @Description:  数据库连接池代码
  */
-@Configuration
+//@Configuration
 @EnableTransactionManagement         //  开始事物
 public class DruidDataSourceConfig {
     private static Logger logger = LoggerFactory.getLogger(DruidDataSourceConfig.class);
@@ -104,6 +108,43 @@ public class DruidDataSourceConfig {
         return ds;
     }
 
+    @Bean
+    public JpaVendorAdapter jpaVendorAdapter() {
+           //实例化jpa适配器，由于使用的是hibernate所以用hibernatejpavendor
+        HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
+        adapter.setDatabase(Database.MYSQL);
+        adapter.setShowSql(true);
+           //不生成sql
+        adapter.setGenerateDdl(false);
+        adapter.setDatabasePlatform("org.hibernate.dialect.My5SQL5Dialect");
+        return adapter;
+    }
+
+
+
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(DataSource dataSource,
+                                                                           JpaVendorAdapter jpaVendorAdapter) {
+        LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
+        emfb.setDataSource(dataSource);
+        emfb.setJpaVendorAdapter(jpaVendorAdapter);
+        emfb.setPackagesToScan("com.web.spittr.data");
+        return emfb;
+
+        //实例化jpa适配器，由于使用的是hibernate所以用hibernatejpavendor
+        //HibernateJpaVendorAdapter japVendor = new HibernateJpaVendorAdapter();
+        ////不生成sql
+        //japVendor.setGenerateDdl(false);
+        ////实例化管理工厂
+        //LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
+        //entityManagerFactory.setDataSource(dataSource);
+        //entityManagerFactory.setJpaVendorAdapter(japVendor);
+        ////设置扫描包名
+        //entityManagerFactory.setPackagesToScan("com.web.spittr");
+        //return entityManagerFactory;
+
+    }
+
     /**
      * 开始事物
      * @return
@@ -120,6 +161,7 @@ public class DruidDataSourceConfig {
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
+
 
 }
 

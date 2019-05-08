@@ -38,7 +38,8 @@ import java.util.Map;
  */
 @Repository
 @Slf4j
-public class JdbcSpitterRepository implements SpittleRepository {
+public class JdbcSpitterRepository implements SpittleRepository
+{
 
     private static final String SQL_INSERT_SPITTER = "insert into spitter (username, password, first_name, last_name, email) values (?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE_SPITTER = "update spitter set username = ?, password = ?, first_name = ?, last_name = ?, email = ?" +
@@ -52,7 +53,6 @@ public class JdbcSpitterRepository implements SpittleRepository {
     private JdbcTemplate jdbcTemplate;
 
    private JdbcOperations jdbcOperations;
-    private Spitter spitter;
 
     @Inject
     public JdbcSpitterRepository(JdbcOperations jdbcOperations) {
