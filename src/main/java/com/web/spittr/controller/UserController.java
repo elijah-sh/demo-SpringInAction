@@ -39,9 +39,6 @@ public class UserController {
     public static final String LOGIN_USERNAME = "shen";
     public static final String LOGIN_PASSWORD = "1";
 
-    @Autowired
-    SpittleRepository spittleRepository;
-
     /**
      * 登录成功之后的页面
      * @return

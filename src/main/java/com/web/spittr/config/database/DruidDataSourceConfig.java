@@ -22,13 +22,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
+import java.util.Properties;
 
 /**
  * @Auther: shuaihu.shen@hand-china.com
  * @Date: 2018/11/1 14:23
  * @Description:  数据库连接池代码
  */
-//@Configuration
+@Configuration
 @EnableTransactionManagement         //  开始事物
 public class DruidDataSourceConfig {
     private static Logger logger = LoggerFactory.getLogger(DruidDataSourceConfig.class);
@@ -48,7 +49,7 @@ public class DruidDataSourceConfig {
      */
     @Bean
    // @Profile("dev")
-    public DataSource dataSource() throws SQLException {
+    public DataSource dataSource() {
         // BasicDataSource ds = new BasicDataSource();
         //DruidDataSource ds = new DruidDataSource();     // 将读取出来的数据设置到 DruidDataSource 中
         /**
@@ -119,10 +120,32 @@ public class DruidDataSourceConfig {
         adapter.setDatabasePlatform("org.hibernate.dialect.My5SQL5Dialect");
         return adapter;
     }
+    @Bean
+    public LocalContainerEntityManagerFactoryBean exampleEntityManager()  {
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        vendorAdapter.setDatabasePlatform("org.hibernate.dialect.PostgreSQLDialect");
+        vendorAdapter.setShowSql(true);
+        vendorAdapter.setDatabase(Database.valueOf("POSTGRESQL"));
+        vendorAdapter.setGenerateDdl(false);
 
-
+        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+        factory.setJpaVendorAdapter(vendorAdapter);
+        // 更改为对应包名，包括 repository 及 pojo ，建议放到同级不同子目录
+        factory.setPackagesToScan("com.web.spittr");
+        factory.setDataSource(dataSource());
+        factory.setJpaProperties(jpaProperties());
+        return factory;
+    }
 
     @Bean
+    public Properties jpaProperties() {
+        Properties properties = new Properties();
+        properties.put("hibernate.temp.use_jdbc_metadata_defaults", "false");
+        return properties;
+    }
+
+
+   // @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(DataSource dataSource,
                                                                            JpaVendorAdapter jpaVendorAdapter) {
         LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
@@ -130,7 +153,7 @@ public class DruidDataSourceConfig {
         emfb.setJpaVendorAdapter(jpaVendorAdapter);
         emfb.setPackagesToScan("com.web.spittr.data");
         return emfb;
-
+    }
         //实例化jpa适配器，由于使用的是hibernate所以用hibernatejpavendor
         //HibernateJpaVendorAdapter japVendor = new HibernateJpaVendorAdapter();
         ////不生成sql
@@ -143,7 +166,7 @@ public class DruidDataSourceConfig {
         //entityManagerFactory.setPackagesToScan("com.web.spittr");
         //return entityManagerFactory;
 
-    }
+
 
     /**
      * 开始事物

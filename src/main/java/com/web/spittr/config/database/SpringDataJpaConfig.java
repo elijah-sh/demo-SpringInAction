@@ -15,7 +15,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 import java.sql.SQLException;
 
-@Configuration
+//@Configuration
 @EnableJpaRepositories("com.web.spittr")
 public class SpringDataJpaConfig {
 

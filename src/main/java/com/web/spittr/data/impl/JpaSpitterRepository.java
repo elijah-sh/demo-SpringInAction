@@ -8,6 +8,8 @@ package com.web.spittr.data.impl;
 import com.web.spittr.Spitter;
 import com.web.spittr.Spittle;
 import com.web.spittr.data.SpittleRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
@@ -19,6 +21,7 @@ import java.util.List;
  * @version: 1.0
  * @data: 2019-05-06 10:56
  */
+@Repository
 public class JpaSpitterRepository implements SpittleRepository {
 
     @PersistenceUnit

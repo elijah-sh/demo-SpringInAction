@@ -8,6 +8,7 @@ package com.web.spittr.controller;
 import com.web.spittr.Spitter;
 import com.web.spittr.Spittle;
 import com.web.spittr.data.SpittleRepository;
+import com.web.spittr.data.impl.JpaSpitterRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,9 +39,11 @@ public class SpittleController {
     public static final String LOGIN_USERNAME = "shen";
     public static final String LOGIN_PASSWORD = "1";
 
-    @Autowired
-    private SpittleRepository spittleRepository;
+ /*   @Autowired
+    private SpittleRepository spittleRepository;*/
 
+    @Autowired
+    private JpaSpitterRepository spittleRepository;
     /**
      * 登录成功之后的页面
      * @return
