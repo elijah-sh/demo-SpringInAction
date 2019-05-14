@@ -4,7 +4,6 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.web.context.WebApplicationContext;
 
 /**
  * @Auther: shuaihu.shen@hand-china.com
@@ -21,7 +20,7 @@ public class ScopeBean {
      *  proxyMode = ScopedProxyMode.INTERFACES 解决了将会话或请求作用域的bean注入到单例bean中所遇到的问题
      */
     @Bean
-    @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.INTERFACES)
+  //  @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.INTERFACES)
     public ShoppingCat cart(){
        return new ShoppingCat();
     }

@@ -26,7 +26,7 @@ public class ConcertConfig {
         return new Performance();
     }
 
-    @Bean("audienceXML")
+    @Bean
     public AudienceXML audienceXML(){
         return new AudienceXML();
     }
